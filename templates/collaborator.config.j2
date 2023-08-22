@@ -22,7 +22,7 @@
             "/etc/burp/burp.crt",
             "/etc/burp/intermediate.crt"
           ]
-        }
+        },
       "https": {
           "port" : {{ burp_https_port }}
       }
@@ -54,7 +54,7 @@
       "interfaces" : [{
         "name":"ns",
 	"localAddress" : "{{ burp_local_address }}",
-	"publicAddress" : "{{ burp_public_address }}",
+	"publicAddress" : "{{ burp_public_address }}"
       }],
       "port" : {{ burp_dns_port }}
   },
