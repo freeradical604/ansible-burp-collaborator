@@ -1,6 +1,6 @@
 {
   "serverDomain" : "{{ burp_server_domain }}",
-  "workerThreads" : 20,
+  "workerThreads" : 10,
 
   "eventCapture": {
       "localAddress" : "{{ burp_local_address }}",
@@ -9,17 +9,42 @@
       "http": {
          "port" : {{ burp_http_port }}
        },
+      "smtp": {
+            "ports": [{{ burp_smtp_port1 }}, {{ burp_smtp_port2 }}]
+        },
+      "smtps": {
+            "ports": {{ burp_smtps_port }}
+        },
 
-      "https": {
-          "port" : {{ burp_https_port }},
-          "certificateFiles" : [
+      "ssl": {
+            "certificateFiles" : [
             "/etc/burp/burp.pk8",
             "/etc/burp/burp.crt",
             "/etc/burp/intermediate.crt"
           ]
+        }
+      "https": {
+          "port" : {{ burp_https_port }},
       }
   },
+"polling": {
+      "localAddress" : "{{ burp_local_address }}",
+      "publicAddress" : "{{ burp_public_address }}",
+        "http": {
+            "port": {{ burp_http_polling_port }}
+        },
+        "https": {
+            "port": {{ burp_https_polling_port }}
+        },
+        "ssl": {
+            "certificateFiles": [
+            "/etc/burp/burp.pk8",
+            "/etc/burp/burp.crt",
+            "/etc/burp/intermediate.crt"
+          ]
 
+        }
+    },
   "metrics": {
       "path" : "{{ burp_metrics_path }}",
       "addressWhitelist" : {{ burp_whitelist }}
@@ -32,5 +57,18 @@
 	"publicAddress" : "{{ burp_public_address }}",
       }],
       "port" : {{ burp_dns_port }}
-  }
+  },
+"logLevel": "DEBUG"
+    "customHttpContent": [
+        {
+            "path": "/",
+            "contentType": "text/html",
+            "base64Content": "PCFkb2N0eXBlIGh0bWw+Cgo8aHRtbCBsYW5nPSJlbiI+CjxoZWFkPgogIDxtZXRhIGNoYXJzZXQ9InV0Zi04Ij4KICA8dGl0bGU+RXhhbXBsZSBQYWdlPC90aXRsZT4KCiAgPGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJjc3MvbXlzdHlsZXNoZWV0LmNzcyI+CjwvaGVhZD4KPGJvZHk+CjxoMT5XZWxjb21lIHRvIG15IGV4YW1wbGUgcGFnZTwvaDE+CjxwPlRoYW5rcyBmb3IgdmlzaXRpbmcgbXkgZXhhbXBsZSBwYWdlLjwvcD4KPC9ib2R5Pgo8L2h0bWw+"
+        },
+        {
+            "path": "/info/readme.txt",
+            "contentType": "text/plain",
+            "base64Content": "VGhpcyBpcyB0aGUgcmVhZG1lIGZpbGUgZm9yIG15IGNvbGxhYm9yYXRvciBzZXJ2ZXIu"
+        }
+    ]
 }

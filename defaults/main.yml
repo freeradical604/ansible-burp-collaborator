@@ -1,5 +1,10 @@
 ---
 burp_http_port: 80
+burp_smtp_port1: 25
+burp_smtp_port2: 587
+burp_smtps_port: 465
+burp_http_polling_port: 9090
+burp_https_polling_port: 9443
 burp_https_port: 443
 burp_dns_port: 53
 burp_metrics_path: metricated
