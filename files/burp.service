@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/java -Xms10m -Xmx200m -XX:GCTimeRatio=19 -jar /usr/share/burp/burpsuite_pro.jar --collaborator-server --collaborator-config=/etc/burp/collaborator.config
+ExecStart=/usr/bin/java -Xms3g -Xmx3g -XX:GCTimeRatio=19 -jar /usr/share/burp/burpsuite_pro.jar --collaborator-server --collaborator-config=/etc/burp/collaborator.config
 Restart=on-abort
 
 [Install]
