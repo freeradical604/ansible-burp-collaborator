@@ -93,12 +93,12 @@
     - selfsign
 
 - name: Set up directory for Burp jar
-  file: dest=/usr/share/burp mode=0755 state=directory owner=root group=root
+  file: dest=/usr/share/burp mode=0755 state=directory owner=collaborator group=collaborator
   tags:
     - setup
 
 - name: Set up directory for Burp config
-  file: dest=/etc/burp mode=0755 state=directory owner=root group=root
+  file: dest=/etc/burp mode=0755 state=directory owner=collaborator group=collaborator
   tags:
     - setup
 
