@@ -15,4 +15,4 @@ galaxy_info:
     - java
 
 dependencies:
-  - 4ARMED.java8
+  - freeradical604.ansible-java21
