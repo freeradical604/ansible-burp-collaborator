@@ -1,5 +1,5 @@
 ---
-generate_self_signed_certs: true
+generate_self_signed_certs: false
 country: GB
 state: London
 locality: London

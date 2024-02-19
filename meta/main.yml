@@ -15,4 +15,4 @@ galaxy_info:
     - java
 
 dependencies:
-  - freeradical604.ansible-java21
+  - ansible-java21
